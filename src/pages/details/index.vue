@@ -201,7 +201,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped  >
 .banner {
   height: 0.95rem;
   display: flex;

@@ -8,63 +8,6 @@
       <li>港粤风味</li>
       <li>日韩料理</li>
     </header>
-     <!-- <main>
-      <div class="box">
-        <div class="top">
-          <div class="one">
-            <img
-              src="https://cube.elemecdn.com/6/fe/e7c9e820aa48a0f4a0ce0ec5c4d13png.png?x-oss-process=image/format,webp/resize,w_80,h_80,m_fixed"
-              alt
-            />
-          </div>
-          <div class="two">
-            <p>米先生黯然销魂炒饭(沙河店)</p>
-            <span>味道超赞</span>
-          </div>
-          <div class="three">
-            <p>
-              评分
-              <span>4.5</span> | 月售
-              <span>3112</span>
-            </p>
-          </div>
-        </div>
-        <div class="middle">
-          <div class="bos">
-            <div class="left">
-              <img
-                src="https://cube.elemecdn.com/c/cd/dd67053b760b511e8042af5db6932jpeg.jpeg?x-oss-process=image/format,webp/resize,w_218,h_218,m_fixed"
-                alt
-              />
-            </div>
-            <div class="right">
-              <p>黯然2号➕里脊➕鸡柳➕腊肠➕烤肠煎蛋果饮</p>
-              <p>食材：铁板里脊、鸡柳、腊肠、鸡蛋、玉米、胡萝卜、甘蓝一起翻炒哦！</p>
-              <p>
-                ￥
-                <span>
-                  19.9
-                  <s>￥42.9</s>
-                </span>
-                <img
-                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMjEuNzI3IDE4LjA5VjkuOTk1QTEgMSAwIDAgMCAyMC43MzQgOWgtMS42NWEuOTk1Ljk5NSAwIDAgMC0uOTkzLjk5NHY4LjA5N0g5Ljk5NGExIDEgMCAwIDAtLjk5NC45OTR2MS42NDljMCAuNTQ3LjQ0NS45OTMuOTk0Ljk5M2g4LjA5N3Y4LjA5N2ExIDEgMCAwIDAgLjk5NC45OTRoMS42NDlhLjk5NS45OTUgMCAwIDAgLjk5My0uOTk0di04LjA5N2g4LjA5N2ExIDEgMCAwIDAgLjk5NC0uOTkzdi0xLjY1YS45OTUuOTk1IDAgMCAwLS45OTQtLjk5M2gtOC4wOTd6TTIwIDQwQzguOTU0IDQwIDAgMzEuMDQ2IDAgMjBTOC45NTQgMCAyMCAwczIwIDguOTU0IDIwIDIwLTguOTU0IDIwLTIwIDIweiIvPjwvc3ZnPg=="
-                  alt
-                />
-              </p>
-            </div>
-          </div>
-           
-        </div>
-        <div class="footer">
-          <p>
-            展开更多套餐
-            <a>2</a>个﹀
-          </p>
-        </div>
-      </div> 
-      
-       
-    </main> -->
   </div>
 </template>
 
@@ -76,7 +19,7 @@ export default {
 </script>
 
 
-<style >
+<style scoped  >
 
 html{
     font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Droid Sans,Helvetica Neue;

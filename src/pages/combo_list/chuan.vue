@@ -79,8 +79,8 @@ export default {
   }
 };
 </script>
-<style >
-.main {
+<style scoped >
+.main  {
   padding-top: 0.4rem;
   height: 100%;
   display: flex;
