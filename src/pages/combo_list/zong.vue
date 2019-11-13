@@ -79,7 +79,7 @@ export default {
   }
 };
 </script>
-<style >
+<style scoped >
 .main {
   padding-top: 0.4rem;
   height: 100%;
