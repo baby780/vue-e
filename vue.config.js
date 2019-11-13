@@ -9,6 +9,7 @@ module.exports={
             }
         }
     },
+    //https://h5.ele.me
     //别名配置
     configureWebpack:{
         resolve:{

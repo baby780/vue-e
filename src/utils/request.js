@@ -13,6 +13,7 @@ server.interceptors.request.use((config)=>{
     //工作中会用的到
 /*     config.header["content-type"]="applicetion/json";
     config.header["token"]=""; */
+    return config;
 },(err)=>{
     return Promise.reject(err);//遇到错误胡抛出去
 })
