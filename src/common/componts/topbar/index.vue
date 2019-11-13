@@ -20,32 +20,32 @@ export default {
         {
           id: 0,
           text: "全部类别",
-          path: "/zong"
+          path: "/package/zong"
         },
         {
           id: 1,
           text: "简餐便当",
-          path: "/jian"
+          path: "/package/jian"
         },
         {
           id: 2,
           text: "传统美食",
-          path: "/chuan"
+          path: "/package/chuan"
         },
         {
           id: 3,
           text: "西施套餐",
-          path: "/xi"
+          path: "/package/xi"
         },
         {
           id: 4,
           text: "港粤风味",
-          path: "/gang"
+          path: "/package/gang"
         },
         {
           id: 5,
           text: "日韩料理",
-          path: "/ri"
+          path: "/package/ri"
         }
       ]
     };

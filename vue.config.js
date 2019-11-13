@@ -8,9 +8,9 @@ module.exports={
                 changeOrigin:true
               
             }
-        }
+        } 
     },
-    //https://h5.ele.me
+  
     //别名配置
     configureWebpack:{
         resolve:{

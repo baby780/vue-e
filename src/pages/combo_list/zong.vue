@@ -1,5 +1,7 @@
 <template>
+
   <div class="main">
+
     <div class="box" v-for="(item,index) in zongList" :key="index" >
       <router-link tag="div" class="top"  to="/details">
         <div class="one">
@@ -58,6 +60,7 @@ export default {
       str: []
     };
   },
+ 
   created() {
    
 
@@ -70,10 +73,10 @@ export default {
 
       this.zongList = data.query_list;
 
-      console.log(this.zongList);
+     /*  console.log(this.zongList); */
     },
     handleevent(){
-      console.log(11)
+      
     }
    
   }

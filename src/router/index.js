@@ -20,12 +20,7 @@ const router = new VueRouter ({
             path:"/",
             redirect:"/e"
         },
-        zong,
-        chuan,
-        gang,
-        jian,
-        ri,
-        xi,
+       
         {
             path:"/details",
             component:_=>import("@pages/details"),
@@ -50,7 +45,28 @@ const router = new VueRouter ({
             meta:{
                 flag:false
             }
-        }
+        },
+        {
+            path:"/package",
+            component:_=>import("@pages/package"),
+            name:"package",
+            meta:{
+                flag:false
+            },
+            children:[
+                {
+                    path:"/",
+                    redirect:"/package/zong"
+                },
+                zong,
+                chuan,
+                gang,
+                jian,
+                ri,
+                xi,
+            ]
+        },
+      
     ]
 
 })

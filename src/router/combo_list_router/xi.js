@@ -1,5 +1,5 @@
 export default {
-    path:"/xi",
+    path:"xi",
     component:()=>import("@pages/combo_list/xi"),
     name:"xi",
     meta:{

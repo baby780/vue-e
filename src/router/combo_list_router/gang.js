@@ -1,5 +1,5 @@
 export default {
-    path:"/gang",
+    path:"gang",
     component:()=>import("@pages/combo_list/gang"),
     name:"gang",
     meta:{

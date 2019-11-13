@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from "./router"
 import observer from "./observer";
 Vue.prototype.$observer = observer;
+import "./mock/index.js"
 
 
 
