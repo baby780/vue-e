@@ -9,6 +9,7 @@ import xi from "./combo_list_router/xi"
 import e from "./e";
 import find from "./find";
 import order from "./order"
+import location from "./location"
 Vue.use(VueRouter);
 Vue.config.productionTip=false;
 
@@ -29,6 +30,7 @@ const router = new VueRouter ({
         e,
         find,
         order,
+        location,
         {
             path:"/mine",
             name:"mine",
@@ -76,7 +78,11 @@ const router = new VueRouter ({
                 xi,
             ]
         },
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> master
       
     ]
 

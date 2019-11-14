@@ -18,8 +18,7 @@ export default {
 };
 </script>
 
-
-<style lang="scss" scoped>
+<style lang="scss" scope>
 .order{
     position:absolute;
     top:0;

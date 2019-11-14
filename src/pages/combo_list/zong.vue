@@ -20,38 +20,67 @@
           </p>
         </div>
 
-      </router-link >
-      <router-link tag="div"  to="/details" class="middle" v-for="(childer,index) in item.foods" :key="index">
-        <div class="bos">
-          <div class="left">
-            <img  />
+  <div class="main">
+  
+      <div class="box" v-for="(item,index) in zongList" :key="index">
+        <router-link tag="div" class="top" to="/details">
+          <div class="one">
+            <img />
+            <!--   :src="'https://cube.elemecdn.com/'+((item.foods[0].image_path).replace('a9','/a9/'))+'.jpeg?x-oss-process=image/format,webp/resize,w_90'" -->
           </div>
-          <div class="right">
-            <p>{{childer.name}}</p>
-            <p>{{childer.description}}</p>
+          <div class="two">
+            <p>{{item.foods[0].restaurant_name}}</p>
+            <span>味道超赞</span>
+          </div>
+          <div class="three">
             <p>
-              ￥
-              <span>
-                {{childer.price}}
-                <s>￥{{childer.original_price}}</s>
-              </span>
-              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMjEuNzI3IDE4LjA5VjkuOTk1QTEgMSAwIDAgMCAyMC43MzQgOWgtMS42NWEuOTk1Ljk5NSAwIDAgMC0uOTkzLjk5NHY4LjA5N0g5Ljk5NGExIDEgMCAwIDAtLjk5NC45OTR2MS42NDljMCAuNTQ3LjQ0NS45OTMuOTk0Ljk5M2g4LjA5N3Y4LjA5N2ExIDEgMCAwIDAgLjk5NC45OTRoMS42NDlhLjk5NS45OTUgMCAwIDAgLjk5My0uOTk0di04LjA5N2g4LjA5N2ExIDEgMCAwIDAgLjk5NC0uOTkzdi0xLjY1YS45OTUuOTk1IDAgMCAwLS45OTQtLjk5M2gtOC4wOTd6TTIwIDQwQzguOTU0IDQwIDAgMzEuMDQ2IDAgMjBTOC45NTQgMCAyMCAwczIwIDguOTU0IDIwIDIwLTguOTU0IDIwLTIwIDIweiIvPjwvc3ZnPg==" alt />
+              评分
+              <span>4.5</span> | 月售
+              <span>3112</span>
             </p>
           </div>
+        </router-link>
+        <router-link
+          tag="div"
+          to="/details"
+          class="middle"
+          v-for="(childer,index) in item.foods"
+          :key="index"
+        >
+          <div class="bos">
+            <div class="left">
+              <img />
+            </div>
+            <div class="right">
+              <p>{{childer.name}}</p>
+              <p>{{childer.description}}</p>
+              <p>
+                ￥
+                <span>
+                  {{childer.price}}
+                  <s>￥{{childer.original_price}}</s>
+                </span>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMjEuNzI3IDE4LjA5VjkuOTk1QTEgMSAwIDAgMCAyMC43MzQgOWgtMS42NWEuOTk1Ljk5NSAwIDAgMC0uOTkzLjk5NHY4LjA5N0g5Ljk5NGExIDEgMCAwIDAtLjk5NC45OTR2MS42NDljMCAuNTQ3LjQ0NS45OTMuOTk0Ljk5M2g4LjA5N3Y4LjA5N2ExIDEgMCAwIDAgLjk5NC45OTRoMS42NDlhLjk5NS45OTUgMCAwIDAgLjk5My0uOTk0di04LjA5N2g4LjA5N2ExIDEgMCAwIDAgLjk5NC0uOTkzdi0xLjY1YS45OTUuOTk1IDAgMCAwLS45OTQtLjk5M2gtOC4wOTd6TTIwIDQwQzguOTU0IDQwIDAgMzEuMDQ2IDAgMjBTOC45NTQgMCAyMCAwczIwIDguOTU0IDIwIDIwLTguOTU0IDIwLTIwIDIweiIvPjwvc3ZnPg=="
+                  alt
+                />
+              </p>
+            </div>
+          </div>
+        </router-link>
+        <div class="footer">
+          <p @click="handleevent()">
+            展开更多套餐
+            <a>{{item.foods.length}}</a>个﹀
+          </p>
         </div>
-      </router-link >
-      <div class="footerq">
-        <p @click="handleevent()">
-          展开更多套餐
-          <a>{{item.foods.length}}</a>个﹀
-        </p>
       </div>
-    </div>
-   
   </div>
+
 </template>
 
 <script>
+
 import { zongApi } from "@api/combo_list/zong";
 
 export default {
@@ -62,8 +91,6 @@ export default {
       str: []
     };
   },
- 
- 
   created() {
     this.handleGetzongList(116.250585);
   },
@@ -77,23 +104,38 @@ export default {
 
       this.zongList = data.query_list;
 
-     /*  console.log(this.zongList); */
+      /*  console.log(this.zongList); */
     },
-    handleevent(){
-      
-    }
-   
-  }
+    handleevent() {}
+  },
+  
 };
+
+// export default {
+//     created(){
+//       this.$store.dispatch("dian/handleGetzongList",116.250585);
+//     },
+//     mounted(){
+//       new BScroll(this.$refs.Body)
+//     }
+
+// }
 </script>
 <style scoped >
 .main {
   padding-top: 0.4rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+  /*  height: 100%; */
+  /*  display: flex;s
+  flex-direction: column; */
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-bottom: 0.49rem;
 }
+
 .box {
   display: flex;
   flex-direction: column;
