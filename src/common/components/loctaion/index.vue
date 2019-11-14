@@ -1,7 +1,7 @@
 <template>
   <div class="loctaion1">
     <transition name="right">
-    <div class="loctaion_box" v-if="info">
+    <div class="loctaion_box" v-if="info" >
         <div class="header1">
         <i class="iconfont icon-fanhui" @click="handleToggle()" ></i>
         <i>选择收获地址</i>
@@ -10,7 +10,11 @@
     <!-- 搜索 -->
       
     <div class="sreach">
-        <li><a>选择城市</a><span class="iconfont icon-zcopy-copy-copy"></span></li>
+        <li><router-link
+            tag="a"
+            to="/location"
+
+        >选择城市</router-link><span class="iconfont icon-zcopy-copy-copy"></span></li>
         <li>
             <span class="iconfont icon-sousuo">请输入地址</span>
         </li>
@@ -35,7 +39,6 @@
     </div>
        <TabBar/>
     </div>
-   
     </transition>
      
   </div>

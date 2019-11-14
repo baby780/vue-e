@@ -9,6 +9,7 @@ import xi from "./combo_list_router/xi"
 import e from "./e";
 import find from "./find";
 import order from "./order"
+import location from "./location"
 Vue.use(VueRouter);
 Vue.config.productionTip=false;
 
@@ -20,12 +21,7 @@ const router = new VueRouter ({
             path:"/",
             redirect:"/e"
         },
-        zong,
-        chuan,
-        gang,
-        jian,
-        ri,
-        xi,
+       
         {
             path:"/details",
             component:_=>import("@pages/details"),
@@ -34,6 +30,7 @@ const router = new VueRouter ({
         e,
         find,
         order,
+        location,
         {
             path:"/mine",
             name:"mine",
@@ -50,7 +47,29 @@ const router = new VueRouter ({
             meta:{
                 flag:false
             }
-        }
+        },
+        {
+            path:"/package",
+            component:_=>import("@pages/package"),
+            name:"package",
+            meta:{
+                flag:false
+            },
+            children:[
+                {
+                    path:"/",
+                    redirect:"/package/zong"
+                },
+                zong,
+                chuan,
+                gang,
+                jian,
+                ri,
+                xi,
+            ]
+        },
+       
+      
     ]
 
 })

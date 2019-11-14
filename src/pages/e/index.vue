@@ -1,6 +1,7 @@
 <template>
   <div class="e">
     <div class="content">
+     
       <!-- 导航 -->
       <!--   <div class="nav">
         <div class="nav_box">
@@ -137,11 +138,46 @@
             <span>甜品饮品</span>
           </a>
         </van-swipe-item>
-        <van-swipe-item>2</van-swipe-item>
+        <van-swipe-item class="nav_box">
+               <a>
+            <img
+              src="https://cube.elemecdn.com/0/1a/314b6da88ab6c7ae9828f91652d40jpeg.jpeg?x-oss-process=image/format,webp/resize,w_90,h_90,m_fixed"
+            />
+            <span>速食简餐</span>
+          </a>
+               <a>
+            <img
+              src="https://cube.elemecdn.com/7/d6/6f2631288a44ec177204e05cbcb93jpeg.jpeg?x-oss-process=image/format,webp/resize,w_90,h_90,m_fixed"
+            />
+            <span>地方小吃</span>
+          </a>
+               <a>
+            <img
+              src="https://cube.elemecdn.com/a/7b/b02bd836411c016935d258b300cfejpeg.jpeg?x-oss-process=image/format,webp/resize,w_90,h_90,m_fixed"
+            />
+            <span>大牌惠吃</span>
+          </a>
+                <a>
+            <img
+              src="https://cube.elemecdn.com/d/38/7bddb07503aea4b711236348e2632jpeg.jpeg?x-oss-process=image/format,webp/resize,w_90,h_90,m_fixed"
+            />
+            <span>速食简餐</span>
+          </a>
+                   <a>
+            <img
+              src="https://cube.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg?x-oss-process=image/format,webp/resize,w_90,h_90,m_fixed"
+            />
+            <span>甜品饮品</span>
+          </a>
+        </van-swipe-item>
       </van-swipe>
       <!-- 套餐 -->
       <div class="member">
-        <div class="package">
+        <router-link
+         class="package"
+         tag="div"
+         to="/package"
+         >
           <div class="right">
             <h3>品质套餐</h3>
             <div class="index-2W67h_0">搭配齐全吃得好</div>
@@ -150,7 +186,7 @@
           <img
             src="https://cube.elemecdn.com/e/ee/df43e7e53f6e1346c3fda0609f1d3png.png?x-oss-process=image/format,webp/resize,w_282,h_188,m_fixed"
           />
-        </div>
+        </router-link>
         <!--   会员 -->
         <div class="index-3eoZ-_0">
           <div class="index-3M-d6_0">
@@ -190,23 +226,23 @@
 
       <!-- 店铺 -->
       <div class="shoplist">
-        <li>
+        <li v-for="(item,index) in shopList" :key="index">
           <div class="top">
-            <img
+           <!--  <img
               src="https://cube.elemecdn.com/f/7b/ae9401ffb0acade58176e723ccb15png.png?x-oss-process=image/format,webp/resize,w_130,h_130,m_fixed"
-            />
+            /> -->
             <div class="top_right">
               <span>
                 <a>品牌</a>
-                <a>麦当劳麦乐送（北京沙河店）</a>
+                <a>{{item.foods[0].restaurant_name}}</a>
                 <a class="iconfont icon-shouji">···</a>
               </span>
               <span>
                 <img
                   src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjUwJSIgeTI9IjUwJSIgaWQ9ImEiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkRFMDAiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkZCMDAwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNNTQuMDE3IDguMDcybC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w1My42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bS00OCAwTDMuNDY1IDkuNjMzYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDUuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMEw3LjU1IDMuMzUybDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2TDguNDk3IDYuMjY5bC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bTEyIDBsLTIuNTUyIDEuNTYxYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDE3LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBsMS4xNDYgMi43NjMgMi45ODIuMjM3Yy41NTYuMDQ0LjY3LjM2OC4yNC43MzZsLTIuMjc0IDEuOTQ0LjY5NiAyLjkxYy4xMy41NDItLjE0My43NS0uNjI2LjQ1NGwtMi41NTEtMS41NnptMTIgMGwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMMjkuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0xMiAwbC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w0MS42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6IiBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="
                 />
-                <a>48</a>
-                <a>月售2751单</a>
+                <a>4.8</a>
+                <a>月售{{item.foods[0].month_sales}}单</a>
               </span>
               <span>
                 <div>
@@ -249,6 +285,8 @@
 </template>
 
 <script>
+/* 配置套餐跳转 */
+
 /* 轮播图 */
 import Vue from "vue";
 import { Swipe, SwipeItem } from "vant";
@@ -256,12 +294,17 @@ Vue.use(Swipe).use(SwipeItem);
 /* 筛选 */
 import { DropdownMenu, DropdownItem } from "vant";
 Vue.use(DropdownMenu).use(DropdownItem);
-import { shouyeApi } from "@api/e";
 
+
+
+/* 接口引入 */
+import {zongApi} from "@api/combo_list/zong";
+import { format } from 'path';
 export default {
   name: "e",
   data() {
     return {
+     shopList:[],
       value1: 0,
       value2: "a",
       value3: "b",
@@ -273,14 +316,26 @@ export default {
       ],
       option2: [{ text: "距离最近", value: "a" }],
       option3: [{ text: "品牌联盟", value: "b" }],
-      option4: [{ text: "筛选", value: "c" }]
+      option4: [{ text: "筛选", value: "c" }],
+      
     };
-  }
+  },
+  created(){
+    this.handleshopList(116.250585)
+  },
 
-  // async created(){
-  //     let data =await shouyeApi(116.250585)
-  //     console.log(data);
-  // },
+methods:{
+    async handleshopList(shoplist){
+      let data =await zongApi(shoplist);
+      this.shopList=data.query_list;
+    /*   console.log(this.shopList);
+      console.log(data); */
+    }
+  
+
+  
+}
+ 
 };
 </script>
 
