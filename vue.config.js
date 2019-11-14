@@ -7,7 +7,12 @@ module.exports={
                 target:" https://h5.ele.me",
                 changeOrigin:true
               
+            },
+            "/api":{
+                target:"http://39.97.33.178",
+                changeOrigin:true
             }
+            
         } 
     },
   

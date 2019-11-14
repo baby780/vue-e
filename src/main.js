@@ -4,6 +4,8 @@ import router from "./router"
 import observer from "./observer";
 Vue.prototype.$observer = observer;
 import "./mock/index.js"
+import store from "./store";
+
 
 
 
@@ -12,5 +14,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

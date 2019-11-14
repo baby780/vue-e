@@ -17,6 +17,9 @@ export default {
 }
 
 </script>
-<style lang="scss">
- 
+<style lang="scss" scoped>
+ .package{
+   height: 100%;
+   
+ }
 </style>

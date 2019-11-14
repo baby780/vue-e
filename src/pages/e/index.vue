@@ -1,6 +1,7 @@
 <template>
   <div class="e">
     <div class="content">
+     
       <!-- 导航 -->
       <!--   <div class="nav">
         <div class="nav_box">
@@ -298,7 +299,7 @@ Vue.use(DropdownMenu).use(DropdownItem);
 
 /* 接口引入 */
 import {zongApi} from "@api/combo_list/zong";
-  import { format } from 'path';
+import { format } from 'path';
 export default {
   name: "e",
   data() {

@@ -33,7 +33,6 @@ export default {
 
 <style lang="scss" scope>
       header{
-    width:100%;
     height:1.1rem;
     background-image:linear-gradient(90deg,#0af,#0085ff);
     padding: 0.25rem 0.15rem;

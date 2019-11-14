@@ -3,6 +3,7 @@
   <Location/>
     <Header v-if="$route.meta.flag1"/>
     <router-view></router-view>
+     
     <TabBar v-if="$route.meta.flag"/>
  </div>
 </template>
