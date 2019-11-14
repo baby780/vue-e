@@ -32,7 +32,7 @@ export default {
 
 };
 </script>
-<style lang="scss">
+<style scope lang="scss">
 /* 头部 */
 .header{
     height: 0.955rem;

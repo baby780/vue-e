@@ -80,7 +80,8 @@ export default {
   }
 };
 </script>
-<style  scoped>
+
+<style scoped >
 .main {
   padding-top: 0.4rem;
   height: 100%;

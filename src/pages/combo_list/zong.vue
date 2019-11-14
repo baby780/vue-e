@@ -1,5 +1,7 @@
 <template>
+
   <div class="main">
+
     <div class="box" v-for="(item,index) in zongList" :key="index" >
       <router-link tag="div" class="top"  to="/details">
         <div class="one">
@@ -38,18 +40,20 @@
           </div>
         </div>
       </router-link >
-      <div class="footer">
+      <div class="footerq">
         <p @click="handleevent()">
           展开更多套餐
           <a>{{item.foods.length}}</a>个﹀
         </p>
       </div>
     </div>
+   
   </div>
 </template>
 
 <script>
 import { zongApi } from "@api/combo_list/zong";
+
 export default {
   name: "zong",
   data() {
@@ -58,10 +62,13 @@ export default {
       str: []
     };
   },
+ 
+ 
   created() {
-   
-
     this.handleGetzongList(116.250585);
+  },
+  activated(){
+
   },
 
   methods: {
@@ -70,10 +77,10 @@ export default {
 
       this.zongList = data.query_list;
 
-      console.log(this.zongList);
+     /*  console.log(this.zongList); */
     },
     handleevent(){
-      console.log(11)
+      
     }
    
   }
@@ -217,7 +224,7 @@ export default {
 /*  .middle .bos .right p:nth-child(3)  s{
     border: 1px solid #666;
 } */
-.footer {
+.footerq {
   width: 100%;
   height: 0.37rem;
   display: flex;

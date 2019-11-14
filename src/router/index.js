@@ -20,12 +20,7 @@ const router = new VueRouter ({
             path:"/",
             redirect:"/e"
         },
-        zong,
-        chuan,
-        gang,
-        jian,
-        ri,
-        xi,
+       
         {
             path:"/details",
             component:_=>import("@pages/details"),
@@ -38,10 +33,20 @@ const router = new VueRouter ({
             path:"/mine",
             name:"mine",
             meta:{
-                flag:true,
+                flagw:true,
                 flag1:false
             },
             component:_=>import("@pages/mine"),
+            children:[
+                {
+                    path:"personal",
+                    name:"personal",
+                    component:_=>import("@pages/personal"),
+                    meta:{
+                        flag:false,
+                    }
+                }
+            ]
         },
         {
             path:"/login",
@@ -50,7 +55,29 @@ const router = new VueRouter ({
             meta:{
                 flag:false
             }
-        }
+        },
+        {
+            path:"/package",
+            component:_=>import("@pages/package"),
+            name:"package",
+            meta:{
+                flag:false
+            },
+            children:[
+                {
+                    path:"/",
+                    redirect:"/package/zong"
+                },
+                zong,
+                chuan,
+                gang,
+                jian,
+                ri,
+                xi,
+            ]
+        },
+
+      
     ]
 
 })

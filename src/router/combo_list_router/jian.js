@@ -1,5 +1,5 @@
 export default {
-    path:"/jian",
+    path:"jian",
     component:()=>import("@pages/combo_list/jian"),
     name:"jian",
     meta:{
