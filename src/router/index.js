@@ -78,11 +78,8 @@ const router = new VueRouter ({
                 xi,
             ]
         },
-<<<<<<< HEAD
 
-=======
        
->>>>>>> master
       
     ]
 

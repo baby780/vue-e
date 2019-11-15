@@ -299,11 +299,7 @@ Vue.use(DropdownMenu).use(DropdownItem);
 
 /* 接口引入 */
 import {zongApi} from "@api/combo_list/zong";
-<<<<<<< HEAD
   import { format } from 'path';
-=======
-import { format } from 'path';
->>>>>>> master
 export default {
   name: "e",
   data() {
