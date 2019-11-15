@@ -5,15 +5,14 @@ import observer from "./observer";
 Vue.prototype.$observer = observer;
 import "./mock/index.js"
 import "./pages/loding/index"
-import store from "./store";
-
-
+import store from "./store"
+import "@common/components"
 
 
 
 Vue.config.productionTip = false
 
-new Vue({
+new Vue({ 
   router,
   store,
   render: h => h(App)

@@ -1,5 +1,7 @@
 <template>
+  <Alley-scroll>
   <div class="city">
+    
     <div class="main">
       <div class="head">
         <i class="iconfont icon-fanhui"></i>
@@ -9,15 +11,19 @@
         <i class="iconfont icon-soushuo1"></i>
         <input type="text" placeholder="请输入城市或者拼音" />
       </div>
+     
       <div class="content" v-for="(item,index) in cityList" :key="index">
         <p  class="p1">{{item.index}}</p>
         <p  class="p2" v-for="(child) in  item.list" :key="child.id">{{child.nm}}</p>
       </div>
+        
       <div class="left9">
         <span v-for="(item,index) in cityList" :key="index">{{item.index}}</span>
       </div>
     </div>
+   
   </div>
+   </Alley-scroll>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -36,13 +42,12 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   padding-bottom: 0.5rem;
-  position: relative;
+  position: relative;;
   display: flex;
   flex-direction: column;
 }

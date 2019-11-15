@@ -1,4 +1,5 @@
 <template>
+   
   <div class="loctaion1">
     <transition name="right">
     <div class="loctaion_box" v-if="info" >
@@ -42,6 +43,7 @@
     </transition>
      
   </div>
+
 </template>
 
 <script>

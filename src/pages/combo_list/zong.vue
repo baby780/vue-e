@@ -1,32 +1,11 @@
 <template>
-
-  <div class="main">
-
-    <div class="box" v-for="(item,index) in zongList" :key="index" >
-      <router-link tag="div" class="top"  to="/details">
-        <div class="one">
-          <img />
-          <!-- :src="'https://cube.elemecdn.com/'+((item.foods[0].image_path).replace('a9','/a9/'))+'.jpeg?x-oss-process=image/format,webp/resize,w_90'" -->
-        </div>
-        <div class="two">
-          <p>{{item.foods[0].restaurant_name}}</p>
-          <span>味道超赞</span>
-        </div>
-        <div class="three">
-          <p>
-            评分
-            <span>4.5</span> | 月售
-            <span>3112</span>
-          </p>
-        </div>
-
-  <div class="main">
-  
+  <Alley-scroll ref="scroll">
+    <div class="main">
       <div class="box" v-for="(item,index) in zongList" :key="index">
         <router-link tag="div" class="top" to="/details">
-          <div class="one">
+          <div class="one" >
             <img />
-            <!--   :src="'https://cube.elemecdn.com/'+((item.foods[0].image_path).replace('a9','/a9/'))+'.jpeg?x-oss-process=image/format,webp/resize,w_90'" -->
+              <!-- :src="'https://cube.elemecdn.com/'+((item.foods[0].image_path).replace('a9','/a9/'))+'.jpeg?x-oss-process=image/format,webp/resize,w_90'" -->
           </div>
           <div class="two">
             <p>{{item.foods[0].restaurant_name}}</p>
@@ -49,7 +28,7 @@
         >
           <div class="bos">
             <div class="left">
-              <img />
+              <img :src="aaa[index]" />
             </div>
             <div class="right">
               <p>{{childer.name}}</p>
@@ -75,12 +54,11 @@
           </p>
         </div>
       </div>
-  </div>
-
+    </div>
+  </Alley-scroll>
 </template>
 
 <script>
-
 import { zongApi } from "@api/combo_list/zong";
 
 export default {
@@ -88,27 +66,68 @@ export default {
   data() {
     return {
       zongList: [],
-      str: []
+      str: [],
+      sss:[],
+      aaa:[],
     };
   },
+  watch:{
+      zongList(){
+         this.$refs.scroll.handlefinishPullDown();
+      }
+  },
   created() {
-    this.handleGetzongList(116.250585);
+    this.handleGetzongList(116.250586);
   },
-  activated(){
-
-  },
-
   methods: {
     async handleGetzongList(longitude) {
       let data = await zongApi(longitude);
-
+    
       this.zongList = data.query_list;
-
-      /*  console.log(this.zongList); */
+     /*  console.log(this.zongList); */
+      let g = this.zongList.length;
+      for (let i = 0; i < g; i++) {
+        for (let j = 0; j < this.zongList[i].foods.length; j++) {
+          this.str.push(this.zongList[i].foods[j].image_path);
+        }
+      }
+      
+      for(let i=0;i<this.str.length;i++){
+          this.sss.push(this.str[i].split(""));
+         
+      }
+      for(let a=0;a<this.sss.length;a++){
+         this.sss[a].splice(1,0,"/");
+          this.sss[a].splice(4,0,"/");
+      }
+      
+      for(let i=0;i<this.sss.length;i++){
+          this.aaa.push(('https://cube.elemecdn.com/')+(this.sss[i].join(""))+('.jpeg?x-oss-process=image/format,webp/resize,w_90'));
+        
+      }
+      //console.log('https://cube.elemecdn.com/'+this.sss[1].join("")+'.jpeg?x-oss-process=image/format,webp/resize,w_90')
+     
+  
+    
+    // this.str.push(this.zongList[0].foods[0].image_path)
+    //   this.sss=this.str[0].split("");
+    //   this.sss.splice(1,0,"/");
+    //   this.sss.splice(4,0,"/");
+    //   this.aaa.push(this.sss.join(""));
+    
     },
+    
+    // 6/8d/745153ff89a97a00838811a0b16ad.jpeg
+
     handleevent() {}
   },
+  mounted(){
+     this.$refs.scroll.handlepullingDown(()=>{
+          this.handleGetzongList(116.250586);
+     });
+  }
   
+
 };
 
 // export default {
@@ -123,17 +142,12 @@ export default {
 </script>
 <style scoped >
 .main {
-  padding-top: 0.4rem;
-  /*  height: 100%; */
-  /*  display: flex;s
-  flex-direction: column; */
-
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  padding-bottom: 0.49rem;
+  padding-top: 0.4rem;
 }
 
 .box {
@@ -279,5 +293,3 @@ export default {
 }
 </style>
 
-
-https://cube.elemecdn.com/2/a9/f014d581a9d2490424268250d11f3jpeg.jpeg?x-oss-process=image/format,webp/resize,w_218,h_218,m_fixed

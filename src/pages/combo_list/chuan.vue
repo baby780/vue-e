@@ -1,4 +1,5 @@
 <template>
+  <Alley-scroll>
   <div class="main">
     <div class="box" v-for="(item,index) in zongList" :key="index" >
       <router-link tag="div" class="top"  to="/details">
@@ -46,6 +47,7 @@
       </div>
     </div>
   </div>
+    </Alley-scroll>
 </template>
 
 <script>
@@ -73,20 +75,22 @@ export default {
       console.log(this.zongList);
     },
     handleevent(){
-      console.log(11)
-    }
    
-  }
+    },
+   
+  },
+ 
 };
 </script>
 <style scoped >
 
 .main {
   padding-top: 0.4rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 .box {
   display: flex;

@@ -1,4 +1,5 @@
 <template>
+<Alley-scroll>
   <div class="main">
     <div class="box" v-for="(item,index) in jianList" :key="index" >
       <router-link tag="div" class="top"  to="/details">
@@ -46,6 +47,7 @@
       </div>
     </div>
   </div>
+  </Alley-scroll>
 </template>
 
 <script>
@@ -84,10 +86,12 @@ export default {
 <style scoped >
 .main {
   padding-top: 0.4rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 .box {
   display: flex;

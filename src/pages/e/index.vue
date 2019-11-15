@@ -285,6 +285,7 @@
 </template>
 
 <script>
+
 /* 配置套餐跳转 */
 
 /* 轮播图 */
@@ -298,7 +299,7 @@ Vue.use(DropdownMenu).use(DropdownItem);
 
 
 /* 接口引入 */
-import {zongApi} from "@api/combo_list/zong";
+import {appApi} from "@api/appApi.js";
   import { format } from 'path';
 export default {
   name: "e",
@@ -320,21 +321,22 @@ export default {
       
     };
   },
-  created(){
-    this.handleshopList(116.250585)
-  },
+//   created(){
+//     this.handleshopList(116.251534)
 
-methods:{
-    async handleshopList(shoplist){
-      let data =await zongApi(shoplist);
-      this.shopList=data.query_list;
-    /*   console.log(this.shopList);
-      console.log(data); */
-    }
+//   },
+
+// methods:{
+//     async handleshopList(shoplist){
+//       let data =await appApi(shoplist);
+//       console.log(data); 
+//     },
   
 
   
-}
+
+  
+// }
  
 };
 </script>

@@ -3,7 +3,6 @@
       <Topbar  />
       
       <router-view></router-view>
-    <TabBar />
  </div>
 </template>
 
