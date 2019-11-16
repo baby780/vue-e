@@ -11,11 +11,17 @@ module.exports={
             "/api":{
                 target:"http://39.97.33.178",
                 changeOrigin:true
-            }
+            },
+            "/users":{
+                target:"http://localhost:3000",
+                changeOrigin:true
+            },
+            // 
+/* http://localhost:3000/users/login */
             
         } 
     },
-  
+ 
     //别名配置
     configureWebpack:{
         resolve:{

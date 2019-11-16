@@ -84,15 +84,7 @@ export default {
 </script>
 
 <style scoped >
-.main {
-  padding-top: 0.4rem;
 
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
 .box {
   display: flex;
   flex-direction: column;

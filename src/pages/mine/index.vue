@@ -6,9 +6,12 @@
         <img src alt />
       </div>
       <div class="middle">
-        <p>asdqweqewqdsad2d</p>
+        <router-link 
+          tag="p"
+          to="/login"
+        >{{this.username}}</router-link>
         <p>
-          <span>🥒</span>12312312312
+          <span></span>
         </p>
       </div>
       <div class="right1">></div>
@@ -36,30 +39,6 @@
             <span class="iconfont span3"   v-html="item.icon2"></span>
           </p>
         </div>
-        <!-- <div class="box">
-                        <span class="span">♦</span>
-                        <p><span></span><span>></span></p>
-            
-                    </div>
-                    <div class="box">
-                        <span class="span">♦</span>
-                        <p><span></span><span>></span></p>
-            
-                    </div>
-                    <div class="box">
-                        <span class="span">♦</span>
-                        <p><span></span><span>></span></p>
-            
-                    </div>
-                    <div class="box">
-                        <span class="span">♦</span>
-                        <p><span></span><span>></span></p>
-            
-                    </div>
-                    <div class="box">
-                        <span class="span">♦</span>
-                        <p><span></span><span>></span></p>
-        </div>-->
       </div>
       <a href="#" class="end">隐私政策</a>
      <TabBar/>
@@ -109,13 +88,27 @@ TabBar
           p: "规则中心",
           icon2: "&#xe6a8"
         }
-      ]
+      ],
+        username:"",
+      
     };
   },
    created(){
-    
+    this.hanleLogin();
       
        
+    },
+    methods:{
+      hanleLogin(){
+        if(this.$route.query.username==undefined){
+         
+           this.username="登录/注册"
+        }else{
+          this.username=this.$route.query.username
+        }
+       
+   
+      }
     }
 };
 </script>

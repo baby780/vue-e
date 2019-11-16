@@ -1,29 +1,30 @@
 <template>
-  <Alley-scroll>
   <div class="city">
-    
-    <div class="main">
-      <div class="head">
-        <i class="iconfont icon-fanhui"></i>
-        城市选择
+    <Alley-scroll>
+      <div class="main">
+        <div class="head">
+          <i class="iconfont icon-fanhui"></i>
+          城市选择
+        </div>
+        <div class="nav">
+          <i class="iconfont icon-soushuo1"></i>
+          <input type="text" placeholder="请输入城市或者拼音" />
+        </div>
+
+        <div class="content" v-for="(item,index) in cityList" :key="index">
+          <p class="p1">{{item.index}}</p>
+          <p class="p2" v-for="(child) in  item.list" :key="child.id">{{child.nm}}</p>
+        </div>
       </div>
-      <div class="nav">
-        <i class="iconfont icon-soushuo1"></i>
-        <input type="text" placeholder="请输入城市或者拼音" />
-      </div>
-     
-      <div class="content" v-for="(item,index) in cityList" :key="index">
-        <p  class="p1">{{item.index}}</p>
-        <p  class="p2" v-for="(child) in  item.list" :key="child.id">{{child.nm}}</p>
-      </div>
-        
-      <div class="left9">
-        <span v-for="(item,index) in cityList" :key="index">{{item.index}}</span>
-      </div>
+    </Alley-scroll>
+    <div class="left9">
+  <!--     <span v-for="(item,index) in cityList" :key="index">{{item.index}}</span> -->
+      <span tag="span" 
+      @tap="handleTo(index)" 
+      v-for="(item,index) in cityList" :key="index" 
+      class="left10">{{item.index}}</span>
     </div>
-   
   </div>
-   </Alley-scroll>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -36,18 +37,26 @@ export default {
     ...mapState({
       cityList: state => state.city.cityList
     })
+  },
+  methods:{
+    handleTo(index){
+      console.log(index);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.city{
+  height:100%;
+}
 .main {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   padding-bottom: 0.5rem;
-  position: relative;;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -123,7 +132,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.left9 span {
+.left9 .left10 {
   display: block;
   height: 0.2rem;
   text-align: center;

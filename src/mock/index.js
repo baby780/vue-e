@@ -4,17 +4,16 @@ import Mock from "mockjs";
 const url =require("url");
 
 const data=Mock.mock({
-    "data|20":[
+    "data":[
         {
-            "id|+1": 1,
-            "d_img":"https://cube.elemecdn.com/f/7b/ae9401ffb0acade58176e723ccb15png.png?x-oss-process=image/format,webp/resize,w_150",
-            "b_img":"https://cube.elemecdn.com/b/e8/fd4d8543d73d25b9fc672ce25bde2png.png?x-oss-process=image/format,webp/resize,w_750",
-            "d_name":"麦当劳麦乐送（北京沙河店）",
-           
+            "id": 1,
+           "username":"高志山",
+           "password":"555555"
 
         }
     ]
 })
+
 
 
 /* 
@@ -23,19 +22,60 @@ const data=Mock.mock({
     参数3:回调
 
 */
-Mock.mock(/\/list/,"get",(options)=>{
-    const{page,limit}=url.parse(options.url,true).query;
 
-    var obj={
-        code:200,
-        errMsg:"",
-        data:{
-            list:[]
-        }
-    }
-    for(var i=(page-1)*limit;i<Math.min(page*limit,data.data.length);i++){
-                obj.data.list.push(data.data[i]);
-            }
-            return obj;
+// Mock.mock(/\/list/,"get",(options)=>{
+//     const{page,limit}=url.parse(options.url,true).query;
+
+//     var obj={
+//         code:200,
+//         errMsg:"",
+//         data:{
+//             list:[]
+//         }
+//     }
+//     for(var i=(page-1)*limit;i<Math.min(page*limit,data.data.length);i++){
+//                 obj.data.list.push(data.data[i]);
+//             }
+//             return obj;
+    
+// })
+
+// Mock.mock(/\/list/,"get",(options)=>{
+//     let {username,password}=options.Body
+//         var obj ={
+//             code:200,
+//             errMsg:"",
+//             data:{
+//                 list:[]
+//             }
+//         }
+//         obj.data.list.push({username,password})
+//         console.log(obj);
+//         return obj;
+// })
+Mock.mock(/\/user\/login/, 'post', (loginByUsername)=>{
+    let {username,password}=JSON.parse(loginByUsername.body)
+      /*  console.log(data.data[0].username); */
+      if(username==data.data[0].username && password==data.data[0].password){
+          var obj={
+              code:200,
+              errMsg:"",
+              data:{
+                  info:"登录成功",
+                  status:1
+              }
+          }
+      }else{
+          var obj={
+              code:200,
+              errMsg:"",
+              data:{
+                info:"密码错误",
+                status:2
+              }
+          }
+      }
+      return obj;
 })
+
 

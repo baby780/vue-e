@@ -13,7 +13,9 @@ export default {
             //开启下拉刷新
             pullDownRefresh:true,
             //开启上拉加载更多
-            pullUpLoad:true
+            pullUpLoad:true,
+            click:true,
+            tap:true,
         });
     },
     methods:{
