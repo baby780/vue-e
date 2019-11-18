@@ -1,6 +1,6 @@
 <template>
   <div class="package">
-      <Topbar  />
+      <Topbar  v-if="$route.meta.a"/>
       
       <router-view></router-view>
  </div>

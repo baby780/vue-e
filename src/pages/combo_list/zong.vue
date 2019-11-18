@@ -1,10 +1,10 @@
 <template>
   <Alley-scroll ref="scroll">
     <div class="main">
-      <div class="box" v-for="(item,index) in zongList" :key="index">
-        <router-link tag="div" class="top" to="/details">
+      <div class="box" v-for="(item,index) in zongList" :key="index" >
+        <router-link tag="div" class="top" :to="'/details/'+item.restaurant.id">
           <div class="one" >
-            <img />
+            <img :src="img[index]"/>
               <!-- :src="'https://cube.elemecdn.com/'+((item.foods[0].image_path).replace('a9','/a9/'))+'.jpeg?x-oss-process=image/format,webp/resize,w_90'" -->
           </div>
           <div class="two">
@@ -21,14 +21,14 @@
         </router-link>
         <router-link
           tag="div"
-          to="/details"
+         :to="'/details/'+item.restaurant.id"
           class="middle"
-          v-for="(childer,index) in item.foods"
-          :key="index"
+          v-for="(childer,i) in item.foods"
+          :key="i"
         >
           <div class="bos">
             <div class="left">
-              <img :src="aaa[index]" />
+              <img :src="aaa[index*i]"/>
             </div>
             <div class="right">
               <p>{{childer.name}}</p>
@@ -69,6 +69,12 @@ export default {
       str: [],
       sss:[],
       aaa:[],
+
+
+
+      dian:[],
+      dianimg:[],
+      img:[]
     };
   },
   watch:{
@@ -103,9 +109,24 @@ export default {
       
       for(let i=0;i<this.sss.length;i++){
           this.aaa.push(('https://cube.elemecdn.com/')+(this.sss[i].join(""))+('.jpeg?x-oss-process=image/format,webp/resize,w_90'));
+          
         
       }
+
+      for(let i =0;i<g;i++){
+            this.dian.push(this.zongList[i].restaurant.image_path);
+      }
+      for(let a=0;a<this.dian.length;a++){
+        this.dianimg.push(this.dian[a].split(""));
+        this.dianimg[a].splice(1,0,"/");
+        this.dianimg[a].splice(4,0,"/");
+      }
+      for(let j=0;j<this.dianimg.length;j++){
+        this.img.push(('https://cube.elemecdn.com/')+(this.dianimg[j].join(""))+('.jpeg?x-oss-process=image/format,webp/resize,w_90'))
+      }
+     
       //console.log('https://cube.elemecdn.com/'+this.sss[1].join("")+'.jpeg?x-oss-process=image/format,webp/resize,w_90')
+     /*  console.log(this.zongList); */
      
   
     
@@ -117,7 +138,8 @@ export default {
     
     },
     
-    // 6/8d/745153ff89a97a00838811a0b16ad.jpeg
+   //
+  //  https://cube.elemecdn.com/4/ce/1c227961b57cf5b989d6b8f052cd0jpeg.jpeg?x-oss-process=image/format,webp/resize,w_90
 
     handleevent() {}
   },
@@ -157,7 +179,7 @@ export default {
   padding: 0.12rem 0 0.1rem;
 }
 .box .top .one {
-  width: 0.4rem;
+  width: 0.7rem;
   height: 100%;
   margin-right: 0.08rem;
 }

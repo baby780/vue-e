@@ -1,5 +1,5 @@
 export default {
-    path:"/e",
+    path:"/e/:city",
     component:()=>import("@pages/e"),
     name:"/e",
     meta:{

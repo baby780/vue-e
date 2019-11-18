@@ -1,6 +1,6 @@
 <template>
-  <div class="city">
-    <Alley-scroll>
+  <div class="city" ref="cityContainer">
+   <!--  <Alley-scroll> -->
       <div class="main">
         <div class="head">
           <i class="iconfont icon-fanhui"></i>
@@ -10,17 +10,21 @@
           <i class="iconfont icon-soushuo1"></i>
           <input type="text" placeholder="请输入城市或者拼音" />
         </div>
-
+        <div  ref="city">
         <div class="content" v-for="(item,index) in cityList" :key="index">
           <p class="p1">{{item.index}}</p>
-          <p class="p2" v-for="(child) in  item.list" :key="child.id">{{child.nm}}</p>
+          <router-link 
+          class="p2" v-for="(child) in  item.list" 
+          :key="child.id"
+          :to="'/e'+'/'+child.nm">{{child.nm}}</router-link>
         </div>
+          </div>
       </div>
-    </Alley-scroll>
+   <!--  </Alley-scroll> -->
     <div class="left9">
   <!--     <span v-for="(item,index) in cityList" :key="index">{{item.index}}</span> -->
       <span tag="span" 
-      @tap="handleTo(index)" 
+      @click="handleTo(index)" 
       v-for="(item,index) in cityList" :key="index" 
       class="left10">{{item.index}}</span>
     </div>
@@ -40,15 +44,19 @@ export default {
   },
   methods:{
     handleTo(index){
-      console.log(index);
-    }
-  }
+        let t=this.$refs.city.querySelectorAll(".p1")[index].offsetTop;
+      this.$refs.cityContainer.scrollTop=t
+
+    },
+  
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .city{
   height:100%;
+  overflow:auto;
 }
 .main {
   top: 0;

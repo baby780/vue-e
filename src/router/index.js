@@ -21,11 +21,11 @@ const router = new VueRouter ({
             path:"/",
             redirect:"/e"
         },
-       
         {
-            path:"/details",
-            component:_=>import("@pages/details"),
+            path:"/details/:id",
+            component:()=>import("@pages/details"),
             name:"details",
+            props:true,
         },
         e,
         find,
@@ -76,6 +76,7 @@ const router = new VueRouter ({
                 jian,
                 ri,
                 xi,
+                
             ]
         },
 

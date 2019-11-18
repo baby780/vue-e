@@ -29,7 +29,7 @@ export default {
         {
           text: "首页",
           icon: "&#xe503",
-          path: "/e"
+          path: "/e/:city",
         },
         {
           text: "发现",

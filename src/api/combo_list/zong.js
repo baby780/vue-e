@@ -11,6 +11,17 @@ export const zongApi =(longitude)=>http({
 })
 
 
+/* 详情页接口  */
+
+export const xiangApi=(id)=>http({
+  method:"get",
+  url:"/restapi/shopping/v1/sale_list_index?type=quality_meal&latitude=40.117667&longitude=116.250586",
+  data:{
+    id:id
+  }
+})
+
+
 
 
 //restapi/shopping/v1/sale_list_index?type=quality_meal&latitude=40.117667&longitude=116.250585&params=%7B%22user_id%22%3A546294874%7D

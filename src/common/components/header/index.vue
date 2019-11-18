@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="location">
-      <p class="iconfont icon-dingwei" @click="handleToggle()">北京科技职业技术学院</p>
+      <p class="iconfont icon-dingwei" @click="handleToggle()">{{this.$route.params.city}}</p>
       <span class="iconfont icon-zcopy-copy-copy"></span>
     </div>
     <div class="search">

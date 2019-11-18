@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="details">
     <!-- 广告 -->
     <div class="banner">
       <i class="iconfont icon-you"></i>
@@ -12,7 +12,7 @@
     <div class="content">
       <div class="content-top">
         <li>
-          <a>麦当劳麦乐送（北京沙河店）</a>
+          <a>{{this.$route.params.id}}</a>
           <i class="iconfont icon-zcopy-copy-copy"></i>
         </li>
         <li>
@@ -187,21 +187,25 @@
   </div>
 </template>
 <script>
-// import Vue from "vue";
-// import { TreeSelect } from "vant";
-
-// Vue.use(TreeSelect);
+import {xiangApi} from "@api/combo_list/zong.js"
 export default {
-//     data() {
-//     return {
-//       activeIndex: 0,
-//       items: [{ text: '分组 1' }, { text: '分组 2' }]
-//     }
-//   }
+    name:"Detail",
+    props:["id"],
+    data(){
+      return{
+        zongList:[],
+      }
+    },
+    async created(){
+      let data=await xiangApi(this.$route.params.id);
+        this.zongList=data;
+        console.log(this.zongList);
+    }
 };
 </script>
 
 <style scoped  >
+
 .banner {
   height: 0.95rem;
   display: flex;
@@ -314,10 +318,11 @@ export default {
   align-items: center;
 }
 .content {
-  flex: 1;
-  overflow-y: auto;
-  -background: blue;
-  background: #fff;
+  position: relative;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 /*    <!-- 会员卡 --> */
 .member {
